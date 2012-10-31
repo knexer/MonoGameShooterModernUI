@@ -14,6 +14,8 @@ using Shooter.Systems;
 using Shooter.EntityManagers;
 using Shooter.Systems.SystemTopologicalSort;
 using Game1.Systems.CollisionResolutionSystems;
+using Game1.Components;
+using Game1.Systems;
 
 namespace Shooter
 {
@@ -109,6 +111,8 @@ namespace Shooter
 
             updateTimeSystems.Add(new DamageOnContactSystem());
 
+            updateTimeSystems.Add(new DestroyNoHealthEntitiesSystem());
+
             initializeSystems();
             computeSystemOrderings();
             initializePlayer();
@@ -169,6 +173,10 @@ namespace Shooter
             //And a component to indicate the the player needs to be clamped to the screen
             ScreenClampedComponent clamper = new ScreenClampedComponent();
             player.AddComponent(clamper);
+
+            //And a component that indicates that the player can be destroyed if it runs out of health
+            DestroyedWhenNoHealthComponent destruct = new DestroyedWhenNoHealthComponent();
+            player.AddComponent(destruct);
 
             entityStorage.Add(player);
         }
