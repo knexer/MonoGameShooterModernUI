@@ -59,7 +59,7 @@ namespace Shooter.Systems
 
         public abstract void Process(EntityManagerManager toProcess, GameTime gameTime);
 
-        public bool IsApplicableTo(Entity candidate)
+        public virtual bool IsApplicableTo(Entity candidate)
         {
             //Ensure that the Entity should truly be processed
             foreach (Type t in GetRequiredComponentTypes())
