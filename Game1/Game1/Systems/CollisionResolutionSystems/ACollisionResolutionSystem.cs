@@ -53,7 +53,10 @@ namespace Game1.Systems.CollisionResolutionSystems
             Entity a = collision.first;
             Entity b = collision.second;
 
-            return isApplicableTo(a, b) || isApplicableTo(b, a);
+            return isApplicableTo(a, b);
+            
+            //Uncomment this to make collision resolution systems not care about order (may or make not make sense)
+            //return isApplicableTo(a, b) || isApplicableTo(b, a);
         }
 
         private bool isApplicableTo(Entity a, Entity b)
