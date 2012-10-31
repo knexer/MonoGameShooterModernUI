@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{78092018-15FD-4D24-A584-B5EAE57ADD99}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Game1</RootNamespace>
+    <AssemblyName>Game1</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>Game1_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Reference Include="MonoGame.Framework.Windows8">
+      <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\Windows8\MonoGame.Framework.Windows8.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Input">
+      <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct2D1">
+      <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Direct2D1.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11">
+      <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Direct3D11.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DXGL">
+      <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.DXGL.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.MediaFoundation">
+      <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.MediaFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Toolkit.Graphics">
+      <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Toolkit.Graphics.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.XAudio2">
+      <HintPath>$(MSBuildExtensionsPath)\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.XAudio2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comparators\RenderLayerComparator.cs" />
+    <Compile Include="Components\AABBComponent.cs" />
+    <Compile Include="Components\AnimationComponent.cs" />
+    <Compile Include="Components\CollisionComponent.cs" />
+    <Compile Include="Components\DamageOnContactComponent.cs" />
+    <Compile Include="Components\DestroyedWhenOffScreenComponent.cs" />
+    <Compile Include="Components\HealthComponent.cs" />
+    <Compile Include="Components\IComponent.cs" />
+    <Compile Include="Components\LinearMovementComponent.cs" />
+    <Compile Include="Components\MoveSpeedComponent.cs" />
+    <Compile Include="Components\PeriodicAddComponentComponent.cs" />
+    <Compile Include="Components\PlayerMovementComponent.cs" />
+    <Compile Include="Components\PositionComponent.cs" />
+    <Compile Include="Components\PositionDeltaComponent.cs" />
+    <Compile Include="Components\RandomPositionOffsetComponent.cs" />
+    <Compile Include="Components\RenderLayerComponent.cs" />
+    <Compile Include="Components\ScreenClampedComponent.cs" />
+    <Compile Include="Components\ScreenWrappingComponent.cs" />
+    <Compile Include="Components\SlavedPositionComponent.cs" />
+    <Compile Include="Components\SpawnEntityComponent.cs" />
+    <Compile Include="Components\TextureComponent.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="EntityManagers\EntityManagerManager.cs" />
+    <Compile Include="EntityManagers\IEntityManager.cs" />
+    <Compile Include="EntityManagers\ListEntityManager.cs" />
+    <Compile Include="EntityManagers\SortedListEntityManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Systems\AnimationResolutionSystem.cs" />
+    <Compile Include="Systems\AnimationUpdateSystem.cs" />
+    <Compile Include="Systems\ASystem.cs" />
+    <Compile Include="Systems\BroadPhaseCollisionDetection.cs" />
+    <Compile Include="Systems\ClampingSystem.cs" />
+    <Compile Include="Systems\CollisionResolutionSystems\PostCollisionResolutionDummySystem.cs" />
+    <Compile Include="Systems\CollisionResolutionSystems\PreCollisionResolutionDummySystem.cs" />
+    <Compile Include="Systems\DestroyOffScreenEntitiesSystem.cs" />
+    <Compile Include="Systems\EntityTranslationSystem.cs" />
+    <Compile Include="Systems\MovementStrategySystems\LinearMovementSystem.cs" />
+    <Compile Include="Systems\MovementStrategySystems\PlayerMovementSystem.cs" />
+    <Compile Include="Systems\MovementStrategySystems\PostMovementStrategyDummySystem.cs" />
+    <Compile Include="Systems\MovementStrategySystems\PreMovementStrategyDummySystem.cs" />
+    <Compile Include="Systems\MovementStrategySystems\RandomPositionOffsetSystem.cs" />
+    <Compile Include="Systems\PeriodicAddComponentUpdater.cs" />
+    <Compile Include="Systems\PositionSlavingSystem.cs" />
+    <Compile Include="Systems\RenderSystem.cs" />
+    <Compile Include="Systems\SpawnEntitySystem.cs" />
+    <Compile Include="Systems\SystemTopologicalSort\DiGraph.cs" />
+    <Compile Include="Systems\SystemTopologicalSort\SystemTopologicalSorter.cs" />
+    <Compile Include="Systems\TiledScreenWrappingSystem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="Game1_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\StoreLogo.png" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
