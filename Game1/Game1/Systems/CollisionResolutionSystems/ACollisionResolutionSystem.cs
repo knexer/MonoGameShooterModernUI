@@ -21,6 +21,10 @@ namespace Game1.Systems.CollisionResolutionSystems
         {
             reqATypes = new List<Type>();
             reqBTypes = new List<Type>();
+
+            SetReqTypes(new List<Type>() { typeof(CollisionComponent) });
+            SetParents(new List<Type>() { typeof(PreCollisionResolutionDummySystem) });
+            SetChildren(new List<Type>() { typeof(PostCollisionResolutionDummySystem) });
         }
 
         public void SetReqATypes(List<Type> reqATypes)
