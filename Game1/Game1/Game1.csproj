@@ -164,6 +164,8 @@
     <Compile Include="Systems\ASystem.cs" />
     <Compile Include="Systems\BroadPhaseCollisionDetection.cs" />
     <Compile Include="Systems\ClampingSystem.cs" />
+    <Compile Include="Systems\CollisionResolutionSystems\ACollisionResolutionSystem.cs" />
+    <Compile Include="Systems\CollisionResolutionSystems\DamageOnContactSystem.cs" />
     <Compile Include="Systems\CollisionResolutionSystems\PostCollisionResolutionDummySystem.cs" />
     <Compile Include="Systems\CollisionResolutionSystems\PreCollisionResolutionDummySystem.cs" />
     <Compile Include="Systems\DestroyOffScreenEntitiesSystem.cs" />
