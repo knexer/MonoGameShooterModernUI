@@ -40,6 +40,8 @@ namespace Shooter.Systems
                 }
                 foreach (Entity ent2 in collidables.entities)
                 {
+                    if (ent == ent2)
+                        continue;
                     if (IsApplicableTo(ent2))
                     {
                         process(ent, ent2, gameTime);
