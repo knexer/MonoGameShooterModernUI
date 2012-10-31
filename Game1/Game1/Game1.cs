@@ -13,6 +13,7 @@ using Shooter.Components;
 using Shooter.Systems;
 using Shooter.EntityManagers;
 using Shooter.Systems.SystemTopologicalSort;
+using Game1.Systems.CollisionResolutionSystems;
 
 namespace Shooter
 {
@@ -105,6 +106,8 @@ namespace Shooter
             updateTimeSystems.Add(new BroadPhaseCollisionDetection());
 
             updateTimeSystems.Add(new DestroyOffScreenEntitiesSystem(GraphicsDevice.Viewport));
+
+            updateTimeSystems.Add(new DamageOnContactSystem());
 
             initializeSystems();
             computeSystemOrderings();
