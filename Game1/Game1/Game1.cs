@@ -113,6 +113,8 @@ namespace Shooter
 
             updateTimeSystems.Add(new DestroyNoHealthEntitiesSystem());
 
+            updateTimeSystems.Add(new SpawnEntityAtPositionSystem());
+
             initializeSystems();
             computeSystemOrderings();
             initializePlayer();
@@ -184,6 +186,9 @@ namespace Shooter
             player.AddComponent(damager);
 
             entityStorage.Add(player);
+
+            //also create the player's gun
+            createPlayerGun(player);
         }
 
         private void initializeBackgrounds()
@@ -374,6 +379,81 @@ namespace Shooter
             mineTemplate.AddComponent(destroyer2);
 
             return mineTemplate;
+        }
+
+        private void createPlayerGun(Entity player)
+        {
+            //compute the gun's offset from the player, then create the gun
+            Entity bullet = createBulletTemplate();
+            AABBComponent bulletBox = (AABBComponent)bullet.components[typeof(AABBComponent)];
+            AABBComponent playerBox = (AABBComponent)player.components[typeof(AABBComponent)];
+            Entity gun = createPositionSlavedEntity(player, new Vector2(playerBox.Width + 0.1f, playerBox.Height / 2.0f - bulletBox.Width / 2.0f));
+
+            //The gun now has a position coupled to that of the player
+            //So spawn bullets at the gun!
+            SpawnEntityAtPositionComponent spawner = new SpawnEntityAtPositionComponent();
+            spawner.toSpawn = bullet;
+
+            //Bullets should be spawned periodically
+            PeriodicAddComponentComponent timer = new PeriodicAddComponentComponent();
+            timer.Period = 0.25f;
+            timer.TimeSinceLastFiring = 0;
+            timer.ComponentToAdd = spawner;
+            gun.AddComponent(timer);
+
+            //finally, add the gun to the world
+            entityStorage.Add(gun);
+        }
+
+        private Entity createBulletTemplate()
+        {
+            Entity bullet = new Entity();
+            
+            //Component: Damage entities.
+            DamageOnContactComponent damage = new DamageOnContactComponent();
+            damage.Damage = 4;
+            bullet.AddComponent(damage);
+
+            //Component: Has health. Used to simulate destruction on contact with an entity
+            HealthComponent health = new HealthComponent();
+            health.Health = 10;
+            bullet.AddComponent(health);
+
+            //Component: Has a texture
+            TextureComponent tex = new TextureComponent();
+            tex.Texture = Content.Load<Texture2D>("laser");
+            tex.SourceRect = tex.Texture.Bounds;
+            bullet.AddComponent(tex);
+
+            //Component: Moves linearly
+            LinearMovementComponent movement = new LinearMovementComponent();
+            bullet.AddComponent(movement);
+
+            //Component: Moves at constant speed
+            MoveSpeedComponent speed = new MoveSpeedComponent();
+            speed.MoveSpeed = 12;
+            bullet.AddComponent(speed);
+
+            //Component: Has a bounding box
+            AABBComponent aabb = new AABBComponent();
+            aabb.Height = tex.SourceRect.Height;
+            aabb.Width = tex.SourceRect.Width;
+            bullet.AddComponent(aabb);
+
+            //Component: Is rendered at a specific layer - just above the enemies
+            RenderLayerComponent layer = new RenderLayerComponent();
+            layer.LayerID = 12;
+            bullet.AddComponent(layer);
+
+            //Component: Is destroyed when it ventures off the (right side of the) screen
+            DestroyedWhenOffScreenComponent destroyer = new DestroyedWhenOffScreenComponent();
+            bullet.AddComponent(destroyer);
+
+            //Component: Is destroyed when it runs out of health
+            DestroyedWhenNoHealthComponent destroyer2 = new DestroyedWhenNoHealthComponent();
+            bullet.AddComponent(destroyer2);
+
+            return bullet;
         }
 
         private void computeSystemOrderings()

@@ -150,6 +150,7 @@
     <Compile Include="Components\ScreenClampedComponent.cs" />
     <Compile Include="Components\ScreenWrappingComponent.cs" />
     <Compile Include="Components\SlavedPositionComponent.cs" />
+    <Compile Include="Components\SpawnEntityAtPosition.cs" />
     <Compile Include="Components\SpawnEntityComponent.cs" />
     <Compile Include="Components\TextureComponent.cs" />
     <Compile Include="Entity.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Systems\PeriodicAddComponentUpdater.cs" />
     <Compile Include="Systems\PositionSlavingSystem.cs" />
     <Compile Include="Systems\RenderSystem.cs" />
+    <Compile Include="Systems\SpawnEntityAtPositionSystem.cs" />
     <Compile Include="Systems\SpawnEntitySystem.cs" />
     <Compile Include="Systems\SystemTopologicalSort\DiGraph.cs" />
     <Compile Include="Systems\SystemTopologicalSort\SystemTopologicalSorter.cs" />
