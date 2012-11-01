@@ -178,6 +178,11 @@ namespace Shooter
             DestroyedWhenNoHealthComponent destruct = new DestroyedWhenNoHealthComponent();
             player.AddComponent(destruct);
 
+            //And the ability to damage entities on contact with them
+            DamageOnContactComponent damager = new DamageOnContactComponent();
+            damager.Damage = 10;
+            player.AddComponent(damager);
+
             entityStorage.Add(player);
         }
 
@@ -363,6 +368,10 @@ namespace Shooter
 
             //Component: Has a score value
             // TODO this is more complex than the other ones, involves the changing of global state!
+
+            //Component: Is destroyed when it runs out of health
+            DestroyedWhenNoHealthComponent destroyer2 = new DestroyedWhenNoHealthComponent();
+            mineTemplate.AddComponent(destroyer2);
 
             return mineTemplate;
         }
