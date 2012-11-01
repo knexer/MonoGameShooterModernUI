@@ -396,7 +396,7 @@ namespace Shooter
 
             //Bullets should be spawned periodically
             PeriodicAddComponentComponent timer = new PeriodicAddComponentComponent();
-            timer.Period = 0.25f;
+            timer.Period = 250.0f;
             timer.TimeSinceLastFiring = 0;
             timer.ComponentToAdd = spawner;
             gun.AddComponent(timer);
