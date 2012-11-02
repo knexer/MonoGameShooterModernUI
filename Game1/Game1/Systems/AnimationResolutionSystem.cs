@@ -32,6 +32,12 @@ namespace Shooter.Systems
             AnimationComponent animation = (AnimationComponent)toProcess.components[typeof(AnimationComponent)];
             TextureComponent tex = (TextureComponent)toProcess.components[typeof(TextureComponent)];
 
+            //If this animation is complete (frame index of -1)
+            if (animation.CurrentFrameIndex == -1)
+            {
+                return;
+            }
+
             //Compute the size of a texture frame
             int frameWidth = tex.Texture.Width / animation.NumFrames;
             int frameHeight = tex.Texture.Height;

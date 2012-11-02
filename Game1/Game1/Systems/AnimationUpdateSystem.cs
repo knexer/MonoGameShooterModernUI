@@ -50,7 +50,7 @@ namespace Shooter.Systems
                     }
                     else
                     {
-                        // TODO 
+                        animation.CurrentFrameIndex = -1;
                     }
                 }
             }
