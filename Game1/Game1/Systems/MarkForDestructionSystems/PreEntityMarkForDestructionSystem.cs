@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shooter.Systems
+namespace Shooter.Systems.MarkForDestructionSystems
 {
     public class PreEntityMarkForDestructionSystem : ASystem
     {

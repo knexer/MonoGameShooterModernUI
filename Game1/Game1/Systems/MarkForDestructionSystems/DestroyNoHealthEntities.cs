@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game1.Systems
+namespace Shooter.Systems.MarkForDestructionSystems
 {
     public class DestroyNoHealthEntitiesSystem : ASystem
     {
@@ -17,7 +17,8 @@ namespace Game1.Systems
 
         public DestroyNoHealthEntitiesSystem()
         {
-            SetParents(new List<Type>() { typeof(PositionSlavingSystem) });
+            SetParents(new List<Type>() { typeof(PreEntityMarkForDestructionSystem) });
+            SetChildren(new List<Type>() { typeof(PostEntityMarkForDestructionSystems) });
             SetReqTypes(new List<Type>() { typeof(HealthComponent), typeof(DestroyedWhenNoHealthComponent) });
         }
 

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Shooter.Systems
+namespace Shooter.Systems.MarkForDestructionSystems
 {
     public class DestroyOffScreenEntitiesSystem : ASystem
     {
@@ -18,7 +18,8 @@ namespace Shooter.Systems
         public DestroyOffScreenEntitiesSystem(Viewport screen)
         {
             SetReqTypes(new List<Type>() { typeof(DestroyedWhenOffScreenComponent), typeof(PositionComponent), typeof(AABBComponent) });
-            SetParents(new List<Type>() { typeof(PositionSlavingSystem) });
+            SetParents(new List<Type>() { typeof(PreEntityMarkForDestructionSystem) });
+            SetChildren(new List<Type>() { typeof(PostEntityMarkForDestructionSystems) });
 
             this.screen = screen;
         }

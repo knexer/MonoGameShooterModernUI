@@ -173,6 +173,7 @@
     <Compile Include="Systems\DestroyNoHealthEntities.cs" />
     <Compile Include="Systems\DestroyOffScreenEntitiesSystem.cs" />
     <Compile Include="Systems\EntityTranslationSystem.cs" />
+    <Compile Include="Systems\MarkForDestructionSystems\PostEntityMarkForDestructionSystems.cs" />
     <Compile Include="Systems\MovementStrategySystems\LinearMovementSystem.cs" />
     <Compile Include="Systems\MovementStrategySystems\PlayerMovementSystem.cs" />
     <Compile Include="Systems\MovementStrategySystems\PostMovementStrategyDummySystem.cs" />
@@ -180,6 +181,9 @@
     <Compile Include="Systems\MovementStrategySystems\RandomPositionOffsetSystem.cs" />
     <Compile Include="Systems\PeriodicAddComponentUpdater.cs" />
     <Compile Include="Systems\PositionSlavingSystem.cs" />
+    <Compile Include="Systems\MarkForDestructionSystems\PreEntityMarkForDestructionSystem.cs" />
+    <Compile Include="Systems\ProcessDestructionSystems\PostProcessDestructionSystem.cs" />
+    <Compile Include="Systems\ProcessDestructionSystems\PreProcessDestructionSystem.cs" />
     <Compile Include="Systems\RenderSystem.cs" />
     <Compile Include="Systems\SpawnEntityAtPositionSystem.cs" />
     <Compile Include="Systems\SpawnEntitySystem.cs" />
