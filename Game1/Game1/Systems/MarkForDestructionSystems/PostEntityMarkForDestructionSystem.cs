@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Shooter.Systems.MarkForDestructionSystems
 {
-    public class PostEntityMarkForDestructionSystems : ASystem
+    public class PostEntityMarkForDestructionSystem : ASystem
     {
-        public PostEntityMarkForDestructionSystems()
+        public PostEntityMarkForDestructionSystem()
         {
             SetParents(new List<Type>() { typeof(PreEntityMarkForDestructionSystem) });
         }

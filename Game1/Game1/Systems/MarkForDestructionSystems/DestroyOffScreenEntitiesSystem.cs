@@ -19,7 +19,7 @@ namespace Shooter.Systems.MarkForDestructionSystems
         {
             SetReqTypes(new List<Type>() { typeof(DestroyedWhenOffScreenComponent), typeof(PositionComponent), typeof(AABBComponent) });
             SetParents(new List<Type>() { typeof(PreEntityMarkForDestructionSystem) });
-            SetChildren(new List<Type>() { typeof(PostEntityMarkForDestructionSystems) });
+            SetChildren(new List<Type>() { typeof(PostEntityMarkForDestructionSystem) });
 
             this.screen = screen;
         }

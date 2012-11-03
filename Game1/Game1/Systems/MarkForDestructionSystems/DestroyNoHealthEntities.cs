@@ -18,7 +18,7 @@ namespace Shooter.Systems.MarkForDestructionSystems
         public DestroyNoHealthEntitiesSystem()
         {
             SetParents(new List<Type>() { typeof(PreEntityMarkForDestructionSystem) });
-            SetChildren(new List<Type>() { typeof(PostEntityMarkForDestructionSystems) });
+            SetChildren(new List<Type>() { typeof(PostEntityMarkForDestructionSystem) });
             SetReqTypes(new List<Type>() { typeof(HealthComponent), typeof(DestroyedWhenNoHealthComponent) });
         }
 
