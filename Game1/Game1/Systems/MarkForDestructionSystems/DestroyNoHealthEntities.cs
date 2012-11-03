@@ -1,6 +1,6 @@
-﻿using Game1.Components;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Shooter;
+using Shooter.Components;
 using Shooter.EntityManagers;
 using Shooter.Systems;
 using System;
@@ -29,8 +29,7 @@ namespace Shooter.Systems.MarkForDestructionSystems
 
         public override void Process(EntityManagerManager toProcess, GameTime gameTime)
         {
-            //find the dead entities
-            List<Entity> marked = new List<Entity>();
+            //find the dead entities and mark them for removal
             foreach (Entity ent in entities.entities)
             {
                 if (IsApplicableTo(ent))
@@ -38,15 +37,9 @@ namespace Shooter.Systems.MarkForDestructionSystems
                     HealthComponent hp = (HealthComponent)ent.components[typeof(HealthComponent)];
                     if (hp.Health <= 0)
                     {
-                        marked.Add(ent);
+                        ent.AddComponent(new MarkedForDeathComponent());
                     }
                 }
-            }
-
-            //remove the dead entities
-            foreach (Entity toRemove in marked)
-            {
-                toProcess.Remove(toRemove);
             }
         }
     }

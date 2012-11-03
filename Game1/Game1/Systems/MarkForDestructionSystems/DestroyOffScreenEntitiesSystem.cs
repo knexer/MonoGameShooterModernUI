@@ -31,21 +31,15 @@ namespace Shooter.Systems.MarkForDestructionSystems
 
         public override void Process(EntityManagerManager toProcess, GameTime gameTime)
         {
-            List<Entity> marked = new List<Entity>();
             foreach (Entity ent in entities.entities)
             {
                 if (IsApplicableTo(ent))
                 {
                     if(isOffScreen(ent))
                     {
-                        marked.Add(ent);
+                        ent.AddComponent(new MarkedForDeathComponent());
                     }
                 }
-            }
-
-            foreach (Entity toRemove in marked)
-            {
-                toProcess.Remove(toRemove);
             }
         }
 
