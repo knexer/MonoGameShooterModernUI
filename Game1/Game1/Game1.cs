@@ -106,13 +106,21 @@ namespace Shooter
 
             updateTimeSystems.Add(new BroadPhaseCollisionDetection());
 
-            updateTimeSystems.Add(new DestroyOffScreenEntitiesSystem(GraphicsDevice.Viewport));
-
             updateTimeSystems.Add(new DamageOnContactSystem());
+
+            updateTimeSystems.Add(new SpawnEntityAtPositionSystem());
+
+            //Entity Destruction
+
+            updateTimeSystems.Add(new PreEntityMarkForDestructionSystem());
+
+            updateTimeSystems.Add(new PostEntityMarkForDestructionSystem());
 
             updateTimeSystems.Add(new DestroyNoHealthEntitiesSystem());
 
-            updateTimeSystems.Add(new SpawnEntityAtPositionSystem());
+            updateTimeSystems.Add(new DestroyOffScreenEntitiesSystem(GraphicsDevice.Viewport));
+
+            updateTimeSystems.Add(new RemoveEntitiesMarkedForDestructionSystem());
 
             initializeSystems();
             computeSystemOrderings();
