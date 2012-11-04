@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace Shooter.Systems.MarkForDestructionSystems
 {
-    public class PostEntityMarkForDestructionSystem : ASystem
+    public class PreMarkForDestructionSystem : ASystem
     {
-        public PostEntityMarkForDestructionSystem()
-        {
-            SetParents(new List<Type>() { typeof(PreEntityMarkForDestructionSystem) });
-        }
-
         public override void Initialize(EntityManagers.EntityManagerManager entityStorage)
         {
         }

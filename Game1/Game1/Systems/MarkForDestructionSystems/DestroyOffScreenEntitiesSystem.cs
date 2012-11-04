@@ -18,8 +18,8 @@ namespace Shooter.Systems.MarkForDestructionSystems
         public DestroyOffScreenEntitiesSystem(Viewport screen)
         {
             SetReqTypes(new List<Type>() { typeof(DestroyedWhenOffScreenComponent), typeof(PositionComponent), typeof(AABBComponent) });
-            SetParents(new List<Type>() { typeof(PreEntityMarkForDestructionSystem) });
-            SetChildren(new List<Type>() { typeof(PostEntityMarkForDestructionSystem) });
+            SetParents(new List<Type>() { typeof(PreMarkForDestructionSystem) });
+            SetChildren(new List<Type>() { typeof(PostMarkForDestructionSystem) });
 
             this.screen = screen;
         }

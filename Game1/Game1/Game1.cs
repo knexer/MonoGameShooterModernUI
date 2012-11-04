@@ -112,9 +112,9 @@ namespace Shooter
 
             //Entity Destruction
 
-            updateTimeSystems.Add(new PreEntityMarkForDestructionSystem());
+            updateTimeSystems.Add(new PreMarkForDestructionSystem());
 
-            updateTimeSystems.Add(new PostEntityMarkForDestructionSystem());
+            updateTimeSystems.Add(new PostMarkForDestructionSystem());
 
             updateTimeSystems.Add(new DestroyNoHealthEntitiesSystem());
 

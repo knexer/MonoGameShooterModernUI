@@ -16,7 +16,7 @@ namespace Shooter.Systems
 
         public RemoveEntitiesMarkedForDestructionSystem()
         {
-            SetParents(new List<Type>() { typeof(PostEntityMarkForDestructionSystem) });
+            SetParents(new List<Type>() { typeof(PostMarkForDestructionSystem) });
             SetReqTypes(new List<Type>() { typeof(MarkedForDeathComponent) });
         }
 
