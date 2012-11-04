@@ -22,12 +22,24 @@ namespace Shooter.Systems
 
         public override void Initialize(EntityManagerManager entityStorage)
         {
-            throw new NotImplementedException();
+            entities = entityStorage.DefaultManager;
         }
 
         public override void Process(EntityManagerManager toProcess, GameTime gameTime)
         {
-            throw new NotImplementedException();
+            List<Entity> toRemove = new List<Entity>();
+            foreach (Entity ent in entities.entities)
+            {
+                if (IsApplicableTo(ent))
+                {
+                    toRemove.Add(ent);
+                }
+            }
+
+            foreach (Entity ent in toRemove)
+            {
+                toProcess.Remove(ent);
+            }
         }
     }
 }

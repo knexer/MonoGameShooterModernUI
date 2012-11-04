@@ -14,8 +14,6 @@ using Shooter.Systems;
 using Shooter.EntityManagers;
 using Shooter.Systems.SystemTopologicalSort;
 using Game1.Systems.CollisionResolutionSystems;
-using Game1.Components;
-using Game1.Systems;
 using Shooter.Systems.MarkForDestructionSystems;
 
 namespace Shooter
