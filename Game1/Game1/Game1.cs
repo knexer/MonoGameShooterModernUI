@@ -412,11 +412,11 @@ namespace Shooter
             tex.SourceRect = tex.Texture.Bounds;
             expl.AddComponent(tex);
 
-            //Component: Has an animation (looping on at first)
+            //Component: Has an animation
             AnimationComponent anim = new AnimationComponent();
             anim.CurrentFrameIndex = 0;
             anim.FrameDuration = 45;
-            anim.Looping = true;
+            anim.Looping = false;
             anim.NumFrames = 12;
             anim.TimeSinceFrameChange = 0;
             expl.AddComponent(anim);

@@ -29,6 +29,10 @@ namespace Shooter.Systems
             //Fetch the components
             AnimationComponent animation = (AnimationComponent)toProcess.components[typeof(AnimationComponent)];
 
+            //If the animation isn't looping and is complete, skip it
+            if (animation.CurrentFrameIndex == -1)
+                return;
+
             //elapse time for the animation
             animation.TimeSinceFrameChange += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
 
