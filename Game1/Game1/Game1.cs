@@ -397,14 +397,14 @@ namespace Shooter
             //Component: Leaves behind an explosion entity when it is destroyed
             AddComponentOnDestructionComponent explosionSpawnTriggerer = new AddComponentOnDestructionComponent();
             SpawnEntityAtPositionComponent explosionSpawner = new SpawnEntityAtPositionComponent();
-            explosionSpawner.toSpawn = createExplosionEntity();
+            explosionSpawner.toSpawn = createExplosionEntity(aabb);
             explosionSpawnTriggerer.ToAdd = explosionSpawner;
             mineTemplate.AddComponent(explosionSpawnTriggerer);
 
             return mineTemplate;
         }
 
-        private Entity createExplosionEntity()
+        private Entity createExplosionEntity(AABBComponent parentAABB)
         {
             Entity expl = new Entity();
 
@@ -437,6 +437,13 @@ namespace Shooter
             //Component: Destroys itself once its animation completes
             DestroyedWhenAnimationCompleteComponent destructor = new DestroyedWhenAnimationCompleteComponent();
             expl.AddComponent(destructor);
+
+            //Component: Is offset such that it is concentric with its parent
+            PositionDeltaComponent delta = new PositionDeltaComponent();
+            float deltaX = parentAABB.Width / 2.0f - aabb.Width / 2.0f;
+            float deltaY = parentAABB.Height / 2.0f - aabb.Height / 2.0f;
+            delta.Delta = new Vector2(deltaX, deltaY);
+            expl.AddComponent(delta);
 
             return expl;
         }
