@@ -129,6 +129,8 @@ namespace Shooter
 
             updateTimeSystems.Add(new AddComponentOnDestructionSystem());
 
+            updateTimeSystems.Add(new DestroyAnimationCompleteEntitiesSystem());
+
             initializeSystems();
             computeSystemOrderings();
             initializePlayer();
@@ -431,6 +433,10 @@ namespace Shooter
             aabb.Height = 134;
             aabb.Width = 134;
             expl.AddComponent(aabb);
+
+            //Component: Destroys itself once its animation completes
+            DestroyedWhenAnimationCompleteComponent destructor = new DestroyedWhenAnimationCompleteComponent();
+            expl.AddComponent(destructor);
 
             return expl;
         }

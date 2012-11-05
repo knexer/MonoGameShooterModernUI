@@ -173,7 +173,7 @@
     <Compile Include="Systems\CollisionResolutionSystems\DamageOnContactSystem.cs" />
     <Compile Include="Systems\CollisionResolutionSystems\PostCollisionResolutionDummySystem.cs" />
     <Compile Include="Systems\CollisionResolutionSystems\PreCollisionResolutionDummySystem.cs" />
-    <Compile Include="Systems\MarkForDestructionSystems\DestroyAnimationCompleteEntities.cs" />
+    <Compile Include="Systems\MarkForDestructionSystems\DestroyAnimationCompleteEntitiesSystem.cs" />
     <Compile Include="Systems\MarkForDestructionSystems\DestroyNoHealthEntities.cs" />
     <Compile Include="Systems\MarkForDestructionSystems\DestroyOffScreenEntitiesSystem.cs" />
     <Compile Include="Systems\EntityTranslationSystem.cs" />
