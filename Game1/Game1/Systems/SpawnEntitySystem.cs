@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Shooter.Components;
 using Shooter.EntityManagers;
+using Shooter.Systems.OnDestructionSystems;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace Shooter.Systems
         public SpawnEntitySystem()
         {
             SetReqTypes(new List<Type> { typeof(SpawnEntityComponent) });
-            SetChildren(new List<Type> { typeof(PeriodicAddComponentUpdater) });
+            SetParents(new List<Type>() { typeof(PostOnDestructionSystem) });
+            SetChildren(new List<Type>() { typeof(RemoveEntitiesMarkedForDestructionSystem) });
         }
 
         private ListEntityManager entities;

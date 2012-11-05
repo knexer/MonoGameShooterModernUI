@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Shooter.Systems.OnDestructionSystems;
 
 namespace Shooter.Systems
 {
@@ -16,7 +17,7 @@ namespace Shooter.Systems
 
         public RemoveEntitiesMarkedForDestructionSystem()
         {
-            SetParents(new List<Type>() { typeof(PostMarkForDestructionSystem) });
+            SetParents(new List<Type>() { typeof(PostOnDestructionSystem) });
             SetReqTypes(new List<Type>() { typeof(MarkedForDeathComponent) });
         }
 

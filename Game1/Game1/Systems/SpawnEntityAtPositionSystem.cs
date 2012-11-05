@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Shooter.Systems.OnDestructionSystems;
 
 namespace Shooter.Systems
 {
@@ -16,7 +17,8 @@ namespace Shooter.Systems
         public SpawnEntityAtPositionSystem()
         {
             SetReqTypes(new List<Type>() { typeof(PositionComponent), typeof(SpawnEntityAtPositionComponent) });
-            SetChildren(new List<Type>() { typeof(PeriodicAddComponentUpdater) });
+            SetParents(new List<Type>() { typeof(PostOnDestructionSystem) });
+            SetChildren(new List<Type>() { typeof(RemoveEntitiesMarkedForDestructionSystem) });
         }
 
         public override void Initialize(EntityManagerManager entityStorage)

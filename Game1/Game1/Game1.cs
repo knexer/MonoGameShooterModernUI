@@ -15,6 +15,7 @@ using Shooter.EntityManagers;
 using Shooter.Systems.SystemTopologicalSort;
 using Game1.Systems.CollisionResolutionSystems;
 using Shooter.Systems.MarkForDestructionSystems;
+using Shooter.Systems.OnDestructionSystems;
 
 namespace Shooter
 {
@@ -121,6 +122,12 @@ namespace Shooter
             updateTimeSystems.Add(new DestroyOffScreenEntitiesSystem(GraphicsDevice.Viewport));
 
             updateTimeSystems.Add(new RemoveEntitiesMarkedForDestructionSystem());
+
+            updateTimeSystems.Add(new PreOnDestructionSystem());
+
+            updateTimeSystems.Add(new PostOnDestructionSystem());
+
+            updateTimeSystems.Add(new AddComponentOnDestructionSystem());
 
             initializeSystems();
             computeSystemOrderings();
@@ -385,7 +392,47 @@ namespace Shooter
             DestroyedWhenNoHealthComponent destroyer2 = new DestroyedWhenNoHealthComponent();
             mineTemplate.AddComponent(destroyer2);
 
+            //Component: Leaves behind an explosion entity when it is destroyed
+            AddComponentOnDestructionComponent explosionSpawnTriggerer = new AddComponentOnDestructionComponent();
+            SpawnEntityAtPositionComponent explosionSpawner = new SpawnEntityAtPositionComponent();
+            explosionSpawner.toSpawn = createExplosionEntity();
+            explosionSpawnTriggerer.ToAdd = explosionSpawner;
+            mineTemplate.AddComponent(explosionSpawnTriggerer);
+
             return mineTemplate;
+        }
+
+        private Entity createExplosionEntity()
+        {
+            Entity expl = new Entity();
+
+            //Component: Has a texture
+            TextureComponent tex = new TextureComponent();
+            tex.Texture = Content.Load<Texture2D>("explosion");
+            tex.SourceRect = tex.Texture.Bounds;
+            expl.AddComponent(tex);
+
+            //Component: Has an animation (looping on at first)
+            AnimationComponent anim = new AnimationComponent();
+            anim.CurrentFrameIndex = 0;
+            anim.FrameDuration = 45;
+            anim.Looping = true;
+            anim.NumFrames = 12;
+            anim.TimeSinceFrameChange = 0;
+            expl.AddComponent(anim);
+
+            //Component: Is rendered at a specific layer (just behind the player)
+            RenderLayerComponent layer = new RenderLayerComponent();
+            layer.LayerID = 9;
+            expl.AddComponent(layer);
+
+            //Component: Has a bounding box
+            AABBComponent aabb = new AABBComponent();
+            aabb.Height = 134;
+            aabb.Width = 134;
+            expl.AddComponent(aabb);
+
+            return expl;
         }
 
         private void createPlayerGun(Entity player)
