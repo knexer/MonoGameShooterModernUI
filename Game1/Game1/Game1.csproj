@@ -135,6 +135,7 @@
     <Compile Include="Components\AnimationComponent.cs" />
     <Compile Include="Components\CollisionComponent.cs" />
     <Compile Include="Components\DamageOnContactComponent.cs" />
+    <Compile Include="Components\DestroyedOnParentDestroyed.cs" />
     <Compile Include="Components\DestroyedWhenAnimationCompleteComponent.cs" />
     <Compile Include="Components\DestroyedWhenNoHealthComponent.cs" />
     <Compile Include="Components\DestroyedWhenOffScreenComponent.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Systems\CollisionResolutionSystems\DamageOnContactSystem.cs" />
     <Compile Include="Systems\CollisionResolutionSystems\PostCollisionResolutionDummySystem.cs" />
     <Compile Include="Systems\CollisionResolutionSystems\PreCollisionResolutionDummySystem.cs" />
+    <Compile Include="Systems\DestroyChildEntitiesSystem.cs" />
     <Compile Include="Systems\MarkForDestructionSystems\DestroyAnimationCompleteEntitiesSystem.cs" />
     <Compile Include="Systems\MarkForDestructionSystems\DestroyNoHealthEntities.cs" />
     <Compile Include="Systems\MarkForDestructionSystems\DestroyOffScreenEntitiesSystem.cs" />

@@ -131,6 +131,8 @@ namespace Shooter
 
             updateTimeSystems.Add(new DestroyAnimationCompleteEntitiesSystem());
 
+            updateTimeSystems.Add(new DestroyChildEntitiesSystem());
+
             initializeSystems();
             computeSystemOrderings();
             initializePlayer();
