@@ -451,6 +451,11 @@ namespace Shooter
             delta.Delta = new Vector2(deltaX, deltaY);
             expl.AddComponent(delta);
 
+            //Component: Plays an explosion sound
+            SoundEffectComponent soundEffect = new SoundEffectComponent();
+            soundEffect.effect = Content.Load<SoundEffect>("sound/explosion");
+            expl.AddComponent(soundEffect);
+
             return expl;
         }
 
@@ -530,6 +535,11 @@ namespace Shooter
             //Component: Is destroyed when it runs out of health
             DestroyedWhenNoHealthComponent destroyer2 = new DestroyedWhenNoHealthComponent();
             bullet.AddComponent(destroyer2);
+
+            //Component: Plays a laser sound
+            SoundEffectComponent soundEffect = new SoundEffectComponent();
+            soundEffect.effect = Content.Load<SoundEffect>("sound/laserFire");
+            bullet.AddComponent(soundEffect);
 
             return bullet;
         }
