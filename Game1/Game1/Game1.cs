@@ -470,6 +470,11 @@ namespace Shooter
             timer.ComponentToAdd = spawner;
             gun.AddComponent(timer);
 
+            //The gun should be removed from the world when the player dies
+            DestroyedOnParentDestroyedComponent existentialDependency = new DestroyedOnParentDestroyedComponent();
+            existentialDependency.parent = player;
+            gun.AddComponent(existentialDependency);
+
             //finally, add the gun to the world
             entityStorage.Add(gun);
         }
