@@ -35,7 +35,7 @@ namespace Shooter.Systems.MarkForDestructionSystems
                 if (IsApplicableTo(ent))
                 {
                     HealthComponent hp = (HealthComponent)ent.components[typeof(HealthComponent)];
-                    if (hp.Health <= 0)
+                    if (hp.Health <= 0 && !ent.components.ContainsKey(typeof(MarkedForDeathComponent)))
                     {
                         ent.AddComponent(new MarkedForDeathComponent());
                     }

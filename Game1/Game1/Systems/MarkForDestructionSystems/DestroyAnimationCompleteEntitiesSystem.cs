@@ -34,7 +34,7 @@ namespace Shooter.Systems.MarkForDestructionSystems
                     AnimationComponent anim = (AnimationComponent)ent.components[typeof(AnimationComponent)];
 
                     //If the animation is complete
-                    if (anim.CurrentFrameIndex == -1)
+                    if (anim.CurrentFrameIndex == -1 && !ent.components.ContainsKey(typeof(MarkedForDeathComponent)))
                     {
                         ent.AddComponent(new MarkedForDeathComponent());
                     }

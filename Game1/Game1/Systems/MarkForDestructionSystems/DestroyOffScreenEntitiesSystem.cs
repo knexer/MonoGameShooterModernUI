@@ -37,7 +37,10 @@ namespace Shooter.Systems.MarkForDestructionSystems
                 {
                     if(isOffScreen(ent))
                     {
-                        ent.AddComponent(new MarkedForDeathComponent());
+                        if (!ent.components.ContainsKey(typeof(MarkedForDeathComponent)))
+                        {
+                            ent.AddComponent(new MarkedForDeathComponent());
+                        }
                     }
                 }
             }
