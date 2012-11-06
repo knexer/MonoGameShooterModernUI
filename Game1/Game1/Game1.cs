@@ -137,6 +137,8 @@ namespace Shooter
 
             updateTimeSystems.Add(new PlaySoundEffectSystem());
 
+            updateTimeSystems.Add(new PlayMusicSystem();
+
             initializeSystems();
             computeSystemOrderings();
             initializePlayer();

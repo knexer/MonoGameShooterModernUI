@@ -144,6 +144,7 @@
     <Compile Include="Components\LinearMovementComponent.cs" />
     <Compile Include="Components\MarkedForDeathComponent.cs" />
     <Compile Include="Components\MoveSpeedComponent.cs" />
+    <Compile Include="Components\MusicComponent.cs" />
     <Compile Include="Components\PeriodicAddComponentComponent.cs" />
     <Compile Include="Components\PlayerMovementComponent.cs" />
     <Compile Include="Components\PositionComponent.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="Systems\OnDestructionSystems\PostOnDestructionSystem.cs" />
     <Compile Include="Systems\OnDestructionSystems\PreOnDestructionSystem.cs" />
     <Compile Include="Systems\PeriodicAddComponentUpdater.cs" />
+    <Compile Include="Systems\PlayMusicSystem.cs" />
     <Compile Include="Systems\PlaySoundEffectSystem.cs" />
     <Compile Include="Systems\PositionSlavingSystem.cs" />
     <Compile Include="Systems\MarkForDestructionSystems\PreMarkForDestructionSystem.cs" />
