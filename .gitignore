@@ -4,4 +4,12 @@ obj
 # mstest test results
 TestResults
 
+#user preferences file
 *.suo
+
+#output of compilation process
+bin/Debug/AppX/*
+bin/*
+
+#BUT keep the compiled assets!!
+!bin/Debug/AppX/Content
