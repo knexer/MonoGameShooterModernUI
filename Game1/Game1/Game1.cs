@@ -137,13 +137,14 @@ namespace Shooter
 
             updateTimeSystems.Add(new PlaySoundEffectSystem());
 
-            updateTimeSystems.Add(new PlayMusicSystem();
+            updateTimeSystems.Add(new PlayMusicSystem());
 
             initializeSystems();
             computeSystemOrderings();
             initializePlayer();
             initializeBackgrounds();
             initializeMinefield();
+            initializeMusic();
         }
 
         private void initializePlayer()
@@ -544,6 +545,18 @@ namespace Shooter
             bullet.AddComponent(soundEffect);
 
             return bullet;
+        }
+
+        private void initializeMusic()
+        {
+            Entity musicEntity = new Entity();
+
+            MusicComponent music = new MusicComponent();
+            music.music = Content.Load<Song>("sound/gameMusic");
+            music.repeat = true;
+            musicEntity.AddComponent(music);
+
+            entityStorage.Add(musicEntity);
         }
 
         private void computeSystemOrderings()
