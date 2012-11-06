@@ -5,4 +5,5 @@ bin/
 # mstest test results
 TestResults
 
+# User preferences files
 *.suo
