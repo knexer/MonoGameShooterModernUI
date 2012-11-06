@@ -133,6 +133,10 @@ namespace Shooter
 
             updateTimeSystems.Add(new DestroyChildEntitiesSystem());
 
+            // Sound systems
+
+            updateTimeSystems.Add(new PlaySoundEffectSystem());
+
             initializeSystems();
             computeSystemOrderings();
             initializePlayer();

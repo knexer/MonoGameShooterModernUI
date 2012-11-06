@@ -153,6 +153,7 @@
     <Compile Include="Components\ScreenClampedComponent.cs" />
     <Compile Include="Components\ScreenWrappingComponent.cs" />
     <Compile Include="Components\SlavedPositionComponent.cs" />
+    <Compile Include="Components\SoundEffectComponent.cs" />
     <Compile Include="Components\SpawnEntityAtPosition.cs" />
     <Compile Include="Components\SpawnEntityComponent.cs" />
     <Compile Include="Components\AddComponentOnDestructionComponent.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Systems\OnDestructionSystems\PostOnDestructionSystem.cs" />
     <Compile Include="Systems\OnDestructionSystems\PreOnDestructionSystem.cs" />
     <Compile Include="Systems\PeriodicAddComponentUpdater.cs" />
+    <Compile Include="Systems\PlaySoundEffectSystem.cs" />
     <Compile Include="Systems\PositionSlavingSystem.cs" />
     <Compile Include="Systems\MarkForDestructionSystems\PreMarkForDestructionSystem.cs" />
     <Compile Include="Systems\ProcessDestructionSystems\PostProcessDestructionSystem.cs" />
