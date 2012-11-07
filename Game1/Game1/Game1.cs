@@ -207,7 +207,7 @@ namespace Shooter
             entityStorage.Add(player);
 
             //also create the player's gun
-            createPlayerGun(player);
+            createPlayerGuns(player);
         }
 
         private void initializeBackground()
@@ -509,13 +509,22 @@ namespace Shooter
             return expl;
         }
 
-        private void createPlayerGun(Entity player)
+        private void createPlayerGuns(Entity player)
+        {
+            //Generate the shared bullet template
+            Entity bullet = createBulletTemplate();
+
+            createPlayerGun(player, bullet, 0.333f, 0.0f);
+            createPlayerGun(player, bullet, 0.667f, 0.5f);
+        }
+
+        //Note: timerPhaseAngle is expected to be in the interval [0, 1]
+        private void createPlayerGun(Entity player, Entity bullet, float offsetProportion, float timerPhaseAngle)
         {
             //compute the gun's offset from the player, then create the gun
-            Entity bullet = createBulletTemplate();
             AABBComponent bulletBox = (AABBComponent)bullet.components[typeof(AABBComponent)];
             AABBComponent playerBox = (AABBComponent)player.components[typeof(AABBComponent)];
-            Entity gun = createPositionSlavedEntity(player, new Vector2(playerBox.Width + 0.1f, playerBox.Height / 2.0f - bulletBox.Height / 2.0f));
+            Entity gun = createPositionSlavedEntity(player, new Vector2(playerBox.Width + 0.1f, playerBox.Height * offsetProportion - bulletBox.Height / 2.0f));
 
             //The gun now has a position coupled to that of the player
             //So spawn bullets at the gun!
@@ -525,7 +534,7 @@ namespace Shooter
             //Bullets should be spawned periodically
             PeriodicAddComponentComponent timer = new PeriodicAddComponentComponent();
             timer.Period = 200.0f;
-            timer.TimeSinceLastFiring = 0;
+            timer.TimeSinceLastFiring = timer.Period * timerPhaseAngle;
             timer.ComponentToAdd = spawner;
             gun.AddComponent(timer);
 
