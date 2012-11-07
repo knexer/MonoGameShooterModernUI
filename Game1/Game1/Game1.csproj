@@ -328,6 +328,18 @@
     <Content Include="Content\Sound\39459__the-bizniss__laser.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\freesoundsorg\39459__the-bizniss__laser.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\freesoundsorg\45654__simon-lacelle__dun-dun-dun.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\freesoundsorg\58765__suonho__basscapes-ultralowend.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\freesoundsorg\87529__robinhood76__01448-distant-big-explosion-2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Game1_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

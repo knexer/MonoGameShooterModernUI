@@ -456,8 +456,8 @@ namespace Shooter
 
             //Component: Plays an explosion sound
             SoundEffectComponent soundEffect = new SoundEffectComponent();
-            soundEffect.effect = Content.Load<SoundEffect>("sound/explosion");
-            //expl.AddComponent(soundEffect);
+            soundEffect.effect = Content.Load<SoundEffect>("freesoundsorg/87529__robinhood76__01448-distant-big-explosion-2");
+            expl.AddComponent(soundEffect);
 
             return expl;
         }
@@ -606,38 +606,6 @@ namespace Shooter
                 cur.Process(entityStorage, gameTime);
             }
 
-            /*
-
-            // Update the component timers
-            componentTimer.Process(entityStorage, gameTime);
-
-            // Spawn entities
-            entitySpawner.Process(entityStorage, gameTime);
-
-            // Handle player input
-            playerMover.Process(entityStorage, gameTime);
-
-            // Move linearly-moving entities
-            linearMover.Process(entityStorage, gameTime);
-
-            // Position randomly-located entities
-            randomPositioner.Process(entityStorage, gameTime);
-
-            // Move entities
-            entityMover.Process(entityStorage, gameTime);
-
-            // Clamp entities to the screen
-            clamper.Process(entityStorage, gameTime);
-
-            // Wrap entitites onto the screen
-            screenWrapper.Process(entityStorage, gameTime);
-
-            // Update the animations
-            animationUpdater.Process(entityStorage, gameTime);
-
-            // update the positions of the slaves
-            slaver.Process(entityStorage, gameTime);*/
-
             base.Update(gameTime);
         }
 
@@ -656,14 +624,6 @@ namespace Shooter
             {
                 cur.Process(entityStorage, gameTime);
             }
-
-            /*
-            //Resolve the animation states to texture sources
-            animationResolver.Process(entityStorage, gameTime);
-            
-            // Draw the entities
-            renderer.Process(entityStorage, gameTime);
-            */
 
             //Stop drawing
             spriteBatch.End();
