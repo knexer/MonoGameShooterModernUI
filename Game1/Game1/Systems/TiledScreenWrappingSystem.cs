@@ -22,7 +22,7 @@ namespace Shooter.Systems
         public TiledScreenWrappingSystem(Viewport screen)
         {
             this.screen = screen;
-            SetReqTypes(new List<Type> { typeof(PositionComponent), typeof(ScreenWrappingComponent) });
+            SetReqTypes(new List<Type> { typeof(PositionComponent), typeof(ScreenWrappingComponent), typeof(AABBComponent) });
             SetParents(new List<Type> { typeof(EntityTranslationSystem) });
         }
 
@@ -35,6 +35,7 @@ namespace Shooter.Systems
 
             //Fetch the components
             PositionComponent pos = (PositionComponent)toProcess.components[typeof(PositionComponent)];
+            AABBComponent aabb = (AABBComponent)toProcess.components[typeof(AABBComponent)];
 
             //Compute whether the thing is entirely off the screen or not, and if so, wrap it
             //Goes off the right side case
@@ -45,7 +46,7 @@ namespace Shooter.Systems
             }
 
             //Goes off the left side case
-            if (pos.Position.X < -screen.Width)
+            if (pos.Position.X < -aabb.Width)
             {
                 pos.Position.X += screen.Width;
             }
@@ -57,7 +58,7 @@ namespace Shooter.Systems
             }
 
             //Goes off the -y direction case
-            if (pos.Position.Y < -screen.Height)
+            if (pos.Position.Y < -aabb.Height)
             {
                 pos.Position.Y += screen.Height;
             }
