@@ -515,7 +515,7 @@ namespace Shooter
             Entity bullet = createBulletTemplate();
             AABBComponent bulletBox = (AABBComponent)bullet.components[typeof(AABBComponent)];
             AABBComponent playerBox = (AABBComponent)player.components[typeof(AABBComponent)];
-            Entity gun = createPositionSlavedEntity(player, new Vector2(playerBox.Width + 0.1f, playerBox.Height / 2.0f - bulletBox.Width / 2.0f));
+            Entity gun = createPositionSlavedEntity(player, new Vector2(playerBox.Width + 0.1f, playerBox.Height / 2.0f - bulletBox.Height / 2.0f));
 
             //The gun now has a position coupled to that of the player
             //So spawn bullets at the gun!
