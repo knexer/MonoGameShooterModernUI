@@ -19,7 +19,7 @@ namespace Shooter.Systems
         public RenderSystem(SpriteBatch spriteBatch)
         {
             this.spriteBatch = spriteBatch;
-            SetReqTypes(new List<Type> { typeof(TextureComponent), typeof(PositionComponent), typeof(RenderLayerComponent) });
+            SetReqTypes(new List<Type> { typeof(TextureComponent), typeof(PositionComponent), typeof(RenderLayerComponent), typeof(AABBComponent) });
             SetParents(new List<Type> { typeof(AnimationResolutionSystem) });
         }
 
@@ -32,8 +32,11 @@ namespace Shooter.Systems
 
             PositionComponent pos = (PositionComponent)toProcess.components[typeof(PositionComponent)];
             TextureComponent tex = (TextureComponent)toProcess.components[typeof(TextureComponent)];
+            AABBComponent aabb = (AABBComponent)toProcess.components[typeof(AABBComponent)];
 
-            spriteBatch.Draw(tex.Texture, pos.Position, tex.SourceRect, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Rectangle destinationRectangle = new Rectangle((int)pos.Position.X, (int)pos.Position.Y, (int)aabb.Width, (int)aabb.Height);
+
+            spriteBatch.Draw(tex.Texture, destinationRectangle, tex.SourceRect, Color.White);
         }
 
 
