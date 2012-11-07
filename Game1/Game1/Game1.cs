@@ -379,7 +379,7 @@ namespace Shooter
             //Component: Periodically add a spawn entity component
             PeriodicAddComponentComponent timer = new PeriodicAddComponentComponent();
             timer.ComponentToAdd = spawnComponent;
-            timer.Period = 1000;
+            timer.Period = 500;
             timer.TimeSinceLastFiring = 0.0f;
             minespawner.AddComponent(timer);
 
@@ -553,12 +553,12 @@ namespace Shooter
             
             //Component: Damage entities.
             DamageOnContactComponent damage = new DamageOnContactComponent();
-            damage.Damage = 4;
+            damage.Damage = 1;
             bullet.AddComponent(damage);
 
             //Component: Has health. Used to simulate destruction on contact with an entity
             HealthComponent health = new HealthComponent();
-            health.Health = 10;
+            health.Health = 1;
             bullet.AddComponent(health);
 
             //Component: Has a texture
