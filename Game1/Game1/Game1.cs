@@ -164,7 +164,7 @@ namespace Shooter
 
             //And a texture
             TextureComponent tex = new TextureComponent();
-            tex.Texture = Content.Load<Texture2D>("shipAnimation");
+            tex.Texture = Content.Load<Texture2D>("spaceArt/png/player");
             tex.SourceRect = tex.Texture.Bounds;
             player.AddComponent(tex);
 
@@ -179,18 +179,9 @@ namespace Shooter
 
             //And a bounding box for clamping (and collisions in the future!)
             AABBComponent aabb = new AABBComponent();
-            aabb.Width = tex.Texture.Width / 8;
+            aabb.Width = tex.Texture.Width;
             aabb.Height = tex.Texture.Height;
             player.AddComponent(aabb);
-
-            //And animation information
-            AnimationComponent anim = new AnimationComponent();
-            anim.CurrentFrameIndex = 0;
-            anim.FrameDuration = 30;
-            anim.Looping = true;
-            anim.NumFrames = 8;
-            anim.TimeSinceFrameChange = 0;
-            player.AddComponent(anim);
 
             //And render layer information.  We'll have the player render at level 10 for now.
             RenderLayerComponent layer = new RenderLayerComponent();
@@ -507,7 +498,7 @@ namespace Shooter
 
             //Component: Has a texture
             TextureComponent tex = new TextureComponent();
-            tex.Texture = Content.Load<Texture2D>("laser");
+            tex.Texture = Content.Load<Texture2D>("spaceArt/png/laserGreen");
             tex.SourceRect = tex.Texture.Bounds;
             bullet.AddComponent(tex);
 

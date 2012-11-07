@@ -341,26 +341,66 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\spaceArt\readme.txt" />
-    <None Include="Content\spaceArt\png\Background\backgroundColor.xnb" />
-    <None Include="Content\spaceArt\png\Background\nebula.xnb" />
-    <None Include="Content\spaceArt\png\Background\speedLine.xnb" />
-    <None Include="Content\spaceArt\png\Background\starBackground.xnb" />
-    <None Include="Content\spaceArt\png\Background\starBig.xnb" />
-    <None Include="Content\spaceArt\png\Background\starSmall.xnb" />
-    <None Include="Content\spaceArt\png\enemyShip.xnb" />
-    <None Include="Content\spaceArt\png\enemyUFO.xnb" />
-    <None Include="Content\spaceArt\png\laserGreen.xnb" />
-    <None Include="Content\spaceArt\png\laserGreenShot.xnb" />
-    <None Include="Content\spaceArt\png\laserRed.xnb" />
-    <None Include="Content\spaceArt\png\laserRedShot.xnb" />
-    <None Include="Content\spaceArt\png\life.xnb" />
-    <None Include="Content\spaceArt\png\meteorBig.xnb" />
-    <None Include="Content\spaceArt\png\meteorSmall.xnb" />
-    <None Include="Content\spaceArt\png\player.xnb" />
-    <None Include="Content\spaceArt\png\playerDamaged.xnb" />
-    <None Include="Content\spaceArt\png\playerLeft.xnb" />
-    <None Include="Content\spaceArt\png\playerRight.xnb" />
-    <None Include="Content\spaceArt\png\shield.xnb" />
+    <Content Include="Content\spaceArt\png\Background\backgroundColor.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\Background\nebula.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\Background\speedLine.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\Background\starBackground.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\Background\starBig.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\Background\starSmall.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\enemyShip.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\enemyUFO.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\laserGreen.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\laserGreenShot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\laserRed.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\laserRedShot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\life.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\meteorBig.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\meteorSmall.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\player.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\playerDamaged.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\playerLeft.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\playerRight.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\spaceArt\png\shield.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Content\spaceArt\preview.xnb" />
     <None Include="Game1_TemporaryKey.pfx" />
   </ItemGroup>
