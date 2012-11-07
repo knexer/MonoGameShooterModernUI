@@ -34,10 +34,13 @@ namespace Shooter
         // Represents the player
         EntityManagerManager entityStorage;
 
+        Random rand;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            rand = new Random();
         }
 
         /// <summary>
@@ -142,7 +145,7 @@ namespace Shooter
             initializeSystems();
             computeSystemOrderings();
             initializePlayer();
-            initializeBackgrounds();
+            initializeBackground();
             initializeMinefield();
             initializeMusic();
         }
@@ -207,43 +210,105 @@ namespace Shooter
             createPlayerGun(player);
         }
 
-        private void initializeBackgrounds()
+        private void initializeBackground()
         {
-            initializeBackground(Content.Load<Texture2D>("mainBackground"), 0, 0);
-            initializeBackground(Content.Load<Texture2D>("bgLayer1"), -1, 1);
-            initializeBackground(Content.Load<Texture2D>("bgLayer2"), -2, 2);
+            //Add purpleness to the background
+            initializePurpleBackground();
+
+            //Add stars at varying 'depths'
+            initializeBackgroundStars();
         }
 
-        private void initializeBackground(Texture2D texture, int moveSpeed, int renderLayer)
+        private void initializePurpleBackground()
         {
-            //Create the primary background
-            Entity bg1 = createBackground(texture, moveSpeed, renderLayer);
+            Entity bg = new Entity();
 
-            int width = GraphicsDevice.Viewport.Width;
-            int height = GraphicsDevice.Viewport.Height;
+            //Component: Has a position
+            PositionComponent pos = new PositionComponent();
+            pos.Position = new Vector2(0, 0);
+            bg.AddComponent(pos);
 
-            //Create and add the slaves
-            for (int i = -1; i < 2; i++)
+            //Component: Has an AABB
+            AABBComponent aabb = new AABBComponent();
+            aabb.Width = GraphicsDevice.Viewport.Width;
+            aabb.Height = GraphicsDevice.Viewport.Height;
+            bg.AddComponent(aabb);
+
+            //Component: Has a texture
+            TextureComponent tex = new TextureComponent();
+            tex.Texture = Content.Load<Texture2D>("spaceArt/png/Background/backgroundColor");
+            tex.SourceRect = tex.Texture.Bounds;
+            bg.AddComponent(tex);
+
+            //Component: Is rendered at a specific layer (the backmost one!)
+            RenderLayerComponent layer = new RenderLayerComponent();
+            layer.LayerID = 0;
+            bg.AddComponent(layer);
+
+            entityStorage.Add(bg);
+        }
+
+        private void initializeBackgroundStars()
+        {
+            Texture2D bigStarTex = Content.Load<Texture2D>("spaceArt/png/Background/starBig");
+            Texture2D littleStarTex = Content.Load<Texture2D>("spaceArt/png/Background/starSmall");
+
+            //shoot for 1 star per 100000 square pixels
+            double targetDensity = 0.00001;
+            int numStars = 0;
+            double area = GraphicsDevice.Viewport.Width * GraphicsDevice.Viewport.Height;
+
+            while (numStars / area < targetDensity)
             {
-                for (int j = -1; j < 2; j++)
-                {
-                    if (i == 0 && j == 0)
-                    {
-                        continue;
-                    }
-                    Entity slave = createPositionSlavedEntity(bg1, new Vector2(i * width, j * height));
-
-                    //Add references to some of the master's components
-                    slave.AddComponent(bg1.components[typeof(TextureComponent)]);
-                    slave.AddComponent(bg1.components[typeof(AABBComponent)]);
-                    slave.AddComponent(bg1.components[typeof(RenderLayerComponent)]);
-
-                    entityStorage.Add(slave);
-                }
+                generateStar(bigStarTex, littleStarTex);
+                numStars++;
             }
+        }
 
-            entityStorage.Add(bg1);
+        private void generateStar(Texture2D bigStarTex, Texture2D littleStarTex)
+        {
+            //determine the depth/speed of the star
+            double speed = rand.NextDouble() * -3 - 1;
 
+            Entity star = new Entity();
+
+            //Component: Has a (random) position
+            PositionComponent pos = new PositionComponent();
+            pos.Position = new Vector2(rand.Next(0, GraphicsDevice.Viewport.Width),
+                rand.Next(0, GraphicsDevice.Viewport.Height));
+            star.AddComponent(pos);
+
+            //Component: Moves at a constant speed
+            LinearMovementComponent movementStrat = new LinearMovementComponent();
+            star.AddComponent(movementStrat);
+
+            //Component: Has a move speed
+            MoveSpeedComponent speedComponent = new MoveSpeedComponent();
+            speedComponent.MoveSpeed = (float)speed;
+            star.AddComponent(speedComponent);
+
+            //Component: Wraps around the screen
+            ScreenWrappingComponent wrapper = new ScreenWrappingComponent();
+            star.AddComponent(wrapper);
+
+            //Component: Has a texture.  This should be little star for far away/slow stars, big otherwise
+            TextureComponent tex = new TextureComponent();
+            tex.Texture = (speed > -2.5) ? littleStarTex : bigStarTex;
+            tex.SourceRect = tex.Texture.Bounds;
+            star.AddComponent(tex);
+
+            //Component: Has a bounding box
+            AABBComponent aabb = new AABBComponent();
+            aabb.Width = tex.Texture.Width;
+            aabb.Height = tex.Texture.Height;
+            star.AddComponent(aabb);
+
+            //Component: Is rendered at a specific layer (just above the background)
+            RenderLayerComponent layer = new RenderLayerComponent();
+            layer.LayerID = 1;
+            star.AddComponent(layer);
+
+            entityStorage.Add(star);
         }
 
         private Entity createPositionSlavedEntity(Entity master, Vector2 offset)
@@ -360,7 +425,7 @@ namespace Shooter
 
             //Component: Moves at constant speed
             MoveSpeedComponent speed = new MoveSpeedComponent();
-            speed.MoveSpeed = -6;
+            speed.MoveSpeed = -10;
             mineTemplate.AddComponent(speed);
 
             //Component: Has a bounding box
