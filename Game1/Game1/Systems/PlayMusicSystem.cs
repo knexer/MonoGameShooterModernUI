@@ -42,6 +42,9 @@ namespace Shooter.Systems
                         MediaPlayer.IsRepeating = comp.repeat;
                     }
                     catch { } //catch all the things!
+
+                    //Only play the music once!
+                    ent.RemoveComponent(comp);
                 }
             }
         }
