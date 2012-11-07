@@ -573,7 +573,7 @@ namespace Shooter
 
             //Component: Moves at constant speed
             MoveSpeedComponent speed = new MoveSpeedComponent();
-            speed.MoveSpeed = 12;
+            speed.MoveSpeed = 18;
             bullet.AddComponent(speed);
 
             //Component: Has a bounding box
