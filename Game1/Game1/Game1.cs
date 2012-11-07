@@ -457,7 +457,7 @@ namespace Shooter
             //Component: Plays an explosion sound
             SoundEffectComponent soundEffect = new SoundEffectComponent();
             soundEffect.effect = Content.Load<SoundEffect>("sound/explosion");
-            expl.AddComponent(soundEffect);
+            //expl.AddComponent(soundEffect);
 
             return expl;
         }
@@ -477,7 +477,7 @@ namespace Shooter
 
             //Bullets should be spawned periodically
             PeriodicAddComponentComponent timer = new PeriodicAddComponentComponent();
-            timer.Period = 250.0f;
+            timer.Period = 200.0f;
             timer.TimeSinceLastFiring = 0;
             timer.ComponentToAdd = spawner;
             gun.AddComponent(timer);
@@ -541,7 +541,7 @@ namespace Shooter
 
             //Component: Plays a laser sound
             SoundEffectComponent soundEffect = new SoundEffectComponent();
-            soundEffect.effect = Content.Load<SoundEffect>("sound/laserFire");
+            soundEffect.effect = Content.Load<SoundEffect>("sound/39459__the-bizniss__laser");
             bullet.AddComponent(soundEffect);
 
             return bullet;

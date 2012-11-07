@@ -215,6 +215,68 @@
     <Content Include="Content\bgLayer2.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Digital_SFX_Set\highDown.xnb" />
+    <Content Include="Content\Digital_SFX_Set\highUp.xnb" />
+    <Content Include="Content\Digital_SFX_Set\laser1.xnb" />
+    <Content Include="Content\Digital_SFX_Set\laser2.xnb" />
+    <Content Include="Content\Digital_SFX_Set\laser3.xnb" />
+    <Content Include="Content\Digital_SFX_Set\laser4.xnb" />
+    <Content Include="Content\Digital_SFX_Set\laser5.xnb" />
+    <Content Include="Content\Digital_SFX_Set\laser6.xnb" />
+    <Content Include="Content\Digital_SFX_Set\laser7.xnb" />
+    <Content Include="Content\Digital_SFX_Set\laser8.xnb" />
+    <Content Include="Content\Digital_SFX_Set\laser9.xnb" />
+    <Content Include="Content\Digital_SFX_Set\lowDown.xnb" />
+    <Content Include="Content\Digital_SFX_Set\lowRandom.xnb" />
+    <Content Include="Content\Digital_SFX_Set\lowThreeTone.xnb" />
+    <Content Include="Content\Digital_SFX_Set\pepSound1.xnb" />
+    <Content Include="Content\Digital_SFX_Set\pepSound2.xnb" />
+    <Content Include="Content\Digital_SFX_Set\pepSound3.xnb" />
+    <Content Include="Content\Digital_SFX_Set\pepSound4.xnb" />
+    <Content Include="Content\Digital_SFX_Set\pepSound5.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaseJump1.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaseJump2.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaseJump3.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaseJump4.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaseJump5.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaserDown1.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaserDown2.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaserDown3.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaserUp1.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaserUp2.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaserUp3.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaserUp4.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaserUp5.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaserUp6.xnb" />
+    <Content Include="Content\Digital_SFX_Set\phaserUp7.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp1.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp10.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp11.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp12.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp2.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp3.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp4.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp5.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp6.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp7.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp8.xnb" />
+    <Content Include="Content\Digital_SFX_Set\powerUp9.xnb" />
+    <Content Include="Content\Digital_SFX_Set\spaceTrash1.xnb" />
+    <Content Include="Content\Digital_SFX_Set\spaceTrash2.xnb" />
+    <Content Include="Content\Digital_SFX_Set\spaceTrash3.xnb" />
+    <Content Include="Content\Digital_SFX_Set\spaceTrash4.xnb" />
+    <Content Include="Content\Digital_SFX_Set\spaceTrash5.xnb" />
+    <Content Include="Content\Digital_SFX_Set\threeTone1.xnb" />
+    <Content Include="Content\Digital_SFX_Set\threeTone2.xnb" />
+    <Content Include="Content\Digital_SFX_Set\tone1.xnb" />
+    <Content Include="Content\Digital_SFX_Set\twoTone1.xnb" />
+    <Content Include="Content\Digital_SFX_Set\twoTone2.xnb" />
+    <Content Include="Content\Digital_SFX_Set\zap1.xnb" />
+    <Content Include="Content\Digital_SFX_Set\zap2.xnb" />
+    <Content Include="Content\Digital_SFX_Set\zapThreeToneDown.xnb" />
+    <Content Include="Content\Digital_SFX_Set\zapThreeToneUp.xnb" />
+    <Content Include="Content\Digital_SFX_Set\zapTwoTone.xnb" />
+    <Content Include="Content\Digital_SFX_Set\zapTwoTone2.xnb" />
     <Content Include="Content\endMenu.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -262,6 +324,9 @@
     </Content>
     <Content Include="Content\Sound\menuMusic.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sound\39459__the-bizniss__laser.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Game1_TemporaryKey.pfx" />
   </ItemGroup>
