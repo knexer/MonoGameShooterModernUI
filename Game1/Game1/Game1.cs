@@ -338,18 +338,9 @@ namespace Shooter
 
             //Component: Has a texture
             TextureComponent tex = new TextureComponent();
-            tex.Texture = Content.Load<Texture2D>("mineAnimation");
+            tex.Texture = Content.Load<Texture2D>("spaceArt/png/meteorBig");
             tex.SourceRect = tex.Texture.Bounds;
             mineTemplate.AddComponent(tex);
-
-            //Component: Has an animation
-            AnimationComponent anim = new AnimationComponent();
-            anim.CurrentFrameIndex = 0;
-            anim.FrameDuration = 30;
-            anim.Looping = true;
-            anim.NumFrames = 8;
-            anim.TimeSinceFrameChange = 0;
-            mineTemplate.AddComponent(anim);
 
             //Component: Has a position.
             PositionComponent pos = new PositionComponent();
@@ -375,7 +366,7 @@ namespace Shooter
             //Component: Has a bounding box
             AABBComponent aabb = new AABBComponent();
             aabb.Height = tex.SourceRect.Height;
-            aabb.Width = tex.SourceRect.Width / anim.NumFrames;
+            aabb.Width = tex.SourceRect.Width;
             mineTemplate.AddComponent(aabb);
 
             //Component: Is rendered at a specific layer - just above the player
