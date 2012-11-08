@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Shooter.EntityManagers
 {
-    public class EntityManagerManager
+    public class EntityManagerManager : IEntityManager
     {
         public ListEntityManager DefaultManager
         {
@@ -119,6 +119,11 @@ namespace Shooter.EntityManagers
                     manager.Remove(toRemove);
                 }
             }
+        }
+
+        public IList<Type> GetRequiredComponents()
+        {
+            throw new NotImplementedException();
         }
     }
 }
