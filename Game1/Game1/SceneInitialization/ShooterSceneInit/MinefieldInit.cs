@@ -62,6 +62,7 @@ namespace Shooter.SceneInitialization.ShooterSceneInit
             PositionComponent pos = new PositionComponent();
             pos.Position.X = game.GraphicsDevice.Viewport.Width - 1;
             pos.Position.Y = game.GraphicsDevice.Viewport.Height / 2 - tex.SourceRect.Height / 2;
+            pos.Rotation = Math.PI / 4;
             mineTemplate.AddComponent(pos);
 
             //Component: Given a random starting vertical position
