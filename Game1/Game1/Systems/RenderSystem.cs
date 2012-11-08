@@ -34,9 +34,12 @@ namespace Shooter.Systems
             TextureComponent tex = (TextureComponent)toProcess.components[typeof(TextureComponent)];
             AABBComponent aabb = (AABBComponent)toProcess.components[typeof(AABBComponent)];
 
-            Rectangle destinationRectangle = new Rectangle((int)pos.Position.X, (int)pos.Position.Y, (int)aabb.Width, (int)aabb.Height);
+            Vector2 origin = new Vector2(aabb.Width / 2.0f, aabb.Height / 2.0f);
 
-            spriteBatch.Draw(tex.Texture, destinationRectangle, tex.SourceRect, Color.White, (float)pos.Rotation, new Vector2(aabb.Width / 2.0f, aabb.Height / 2.0f), SpriteEffects.None, 0);
+            //Move it by the origin because this draw method is very, very confusing
+            Rectangle destinationRectangle = new Rectangle((int)(pos.Position.X + origin.X), (int)(pos.Position.Y + origin.Y), (int)aabb.Width, (int)aabb.Height);
+
+            spriteBatch.Draw(tex.Texture, destinationRectangle, tex.SourceRect, Color.White, (float)pos.Rotation, origin, SpriteEffects.None, 0);
         }
 
 
