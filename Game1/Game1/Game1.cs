@@ -148,19 +148,7 @@ namespace Shooter
             new PlayerInit().InitializeScene(entityStorage, this);
             new BackgroundInit().InitializeScene(entityStorage, this);
             new MinefieldInit().InitializeScene(entityStorage, this);
-            initializeMusic();
-        }
-
-        private void initializeMusic()
-        {
-            Entity musicEntity = new Entity();
-
-            MusicComponent music = new MusicComponent();
-            music.music = Content.Load<Song>("sound/gameMusic");
-            music.repeat = true;
-            musicEntity.AddComponent(music);
-
-            entityStorage.Add(musicEntity);
+            new MusicInit().InitializeScene(entityStorage, this);
         }
 
         private void computeSystemOrderings()
