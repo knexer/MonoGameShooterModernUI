@@ -36,7 +36,7 @@ namespace Shooter.Systems
 
             Rectangle destinationRectangle = new Rectangle((int)pos.Position.X, (int)pos.Position.Y, (int)aabb.Width, (int)aabb.Height);
 
-            spriteBatch.Draw(tex.Texture, destinationRectangle, tex.SourceRect, Color.White);
+            spriteBatch.Draw(tex.Texture, destinationRectangle, tex.SourceRect, Color.White, (float)pos.Rotation, Vector2.Zero, SpriteEffects.None, 0);
         }
 
 
