@@ -169,6 +169,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SceneInitialization\ISceneInitializer.cs" />
     <Compile Include="SceneInitialization\ShooterSceneInit\BackgroundInit.cs" />
+    <Compile Include="SceneInitialization\ShooterSceneInit\MinefieldInit.cs" />
     <Compile Include="SceneInitialization\ShooterSceneInit\PlayerInit.cs" />
     <Compile Include="Systems\AnimationResolutionSystem.cs" />
     <Compile Include="Systems\AnimationUpdateSystem.cs" />
