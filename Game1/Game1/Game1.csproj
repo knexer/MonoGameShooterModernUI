@@ -169,6 +169,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SceneInitialization\ISceneInitializer.cs" />
     <Compile Include="SceneInitialization\ShooterSceneInit\BackgroundInit.cs" />
+    <Compile Include="SceneInitialization\ShooterSceneInit\Frustum.cs" />
     <Compile Include="SceneInitialization\ShooterSceneInit\MinefieldInit.cs" />
     <Compile Include="SceneInitialization\ShooterSceneInit\MusicInit.cs" />
     <Compile Include="SceneInitialization\ShooterSceneInit\PlayerInit.cs" />
