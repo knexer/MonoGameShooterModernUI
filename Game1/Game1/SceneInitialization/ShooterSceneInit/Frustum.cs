@@ -69,13 +69,35 @@ namespace Shooter.SceneInitialization.ShooterSceneInit
         /// The random object used to sample the point.  Two equal random objects will always result in the same sampled point.
         /// </param>
         /// <returns></returns>
-        public Vector3 samplePointFromBoundingBox(Random rand)
+        private Vector3 samplePointFromBoundingBox(Random rand)
         {
-            float x = (float)(rand.NextDouble() * deltaX * maxDepth - deltaY * maxDepth);
-            float y = (float)(rand.NextDouble() * deltaY * maxDepth - deltaX * maxDepth);
+            float x = (float)(rand.NextDouble() * deltaX * maxDepth - deltaX * maxDepth);
+            float y = (float)(rand.NextDouble() * deltaY * maxDepth - deltaY * maxDepth);
             float z = (float)(rand.NextDouble() * (maxDepth - screenDepth) + screenDepth);
 
             return new Vector3(x, y, z);
+        }
+
+        /// <summary>
+        /// Transforms the given point in local Euclidean space to the weird local pseudo-spherical space
+        /// </summary>
+        /// <param name="euclidean"></param>
+        /// <returns>
+        /// The provided point in pseudo-spherical space.
+        /// X: the proportion across the width of the frustum that the point is.  Range: 0 to 1
+        /// Y: the proportion across the height of the frustum that the point is  Range: 0 to 1
+        /// Z: the depth in the frustum that the point is at (unchanged).  Range: screenDepth to maxDepth
+        /// </returns>
+        public Vector3 TransformFromEuclideanSpaceToPseudoSphericalSpace(Vector3 euclidean)
+        {
+            //compute the size of the bounding rectangle at the selected depth
+            double width = deltaX * euclidean.Z;
+            double height = deltaY * euclidean.Z;
+
+            double x = euclidean.X / width + 0.5;
+            double y = euclidean.Y / height + 0.5;
+
+            return new Vector3(2 * (float)x, 2 * (float)y, euclidean.Z);
         }
     }
 }

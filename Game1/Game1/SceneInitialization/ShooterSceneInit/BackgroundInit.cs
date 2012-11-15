@@ -63,28 +63,42 @@ namespace Shooter.SceneInitialization.ShooterSceneInit
             Texture2D littleStarTex = game.Content.Load<Texture2D>("spaceArt/png/Background/starSmall");
 
             //shoot for 1 star per 100000 square pixels
-            double targetDensity = 0.00001;
+            double targetDensity = 0.00007;
             int numStars = 0;
             double area = game.GraphicsDevice.Viewport.Width * game.GraphicsDevice.Viewport.Height;
 
+            double screenWidth = 14; //inches width of my laptop screen
+            double screenHeight = screenWidth * 9 / 16; //screen height, in same units as above, for a widescreen display
+            double screenDepth = 20; //approx distance in inches to laptop screen
+            double maxDepth = 12 * 8; //eight feet away in inches
+
+            double speedAtUnitDepth = -4 / screenDepth; //in pixels per frame
+
+            Frustum generationVolume = new Frustum(screenWidth, screenHeight, screenDepth, maxDepth);
+
             while (numStars / area < targetDensity)
             {
-                generateStar(entityStore, game, bigStarTex, littleStarTex);
+                generateStar(entityStore, game, bigStarTex, littleStarTex, generationVolume, speedAtUnitDepth, screenDepth, screenWidth, screenHeight);
                 numStars++;
             }
         }
 
-        private void generateStar(IEntityManager entityStore, Game game, Texture2D bigStarTex, Texture2D littleStarTex)
+        private void generateStar(IEntityManager entityStore, Game game, Texture2D bigStarTex, Texture2D littleStarTex, Frustum generationVolume, double speedAtUnitDepth, double screenDepth, double screenWidth, double screenHeight)
         {
+            //sample a 3d location for the star
+            Vector3 starLoc = generationVolume.samplePoint(rand);
+
+            //determine the speed as a function of the depth
+            double speed = speedAtUnitDepth / starLoc.Z * screenDepth * screenDepth;
+
             //determine the depth/speed of the star
-            double speed = rand.NextDouble() * -3 - 1;
 
             Entity star = new Entity();
 
-            //Component: Has a (random) position
+            //Component: Has a position, determined by starLoc
             PositionComponent pos = new PositionComponent();
-            pos.Position = new Vector2(rand.Next(0, game.GraphicsDevice.Viewport.Width),
-                rand.Next(0, game.GraphicsDevice.Viewport.Height));
+            Vector3 starLoc2 = generationVolume.TransformFromEuclideanSpaceToPseudoSphericalSpace(starLoc);
+            pos.Position = new Vector2(starLoc2.X * game.GraphicsDevice.Viewport.Width, starLoc2.Y * game.GraphicsDevice.Viewport.Height);
             star.AddComponent(pos);
 
             //Component: Moves at a constant speed
