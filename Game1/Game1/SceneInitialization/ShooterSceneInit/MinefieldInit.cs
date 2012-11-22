@@ -71,8 +71,9 @@ namespace Shooter.SceneInitialization.ShooterSceneInit
             randomOffset.Maximum = new Vector2(0.0f, 0.4f * game.GraphicsDevice.Viewport.Height);
             mineTemplate.AddComponent(randomOffset);
 
-            //Component: Moves linearly
+            //Component: Moves linearly, continuously rotates
             LinearMovementComponent movement = new LinearMovementComponent();
+            movement.RotationRate = 0.01f;
             mineTemplate.AddComponent(movement);
 
             //Component: Moves at constant speed
