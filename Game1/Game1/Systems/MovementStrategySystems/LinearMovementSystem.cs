@@ -27,9 +27,11 @@ namespace Shooter.Systems
             }
 
             float speed = ((MoveSpeedComponent)toProcess.components[typeof(MoveSpeedComponent)]).MoveSpeed;
+            float rotSpeed = ((LinearMovementComponent)toProcess.components[typeof(LinearMovementComponent)]).RotationRate;
 
             PositionDeltaComponent delta = new PositionDeltaComponent();
             delta.Delta = new Vector2(speed, 0);
+            delta.RotationDelta = rotSpeed; 
 
             toProcess.AddComponent(delta);
         }

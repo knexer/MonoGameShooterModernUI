@@ -31,6 +31,7 @@ namespace Shooter.Systems
 
             //Update the entity's position
             pos.Position = pos.Position + delta.Delta;
+            pos.Rotation = pos.Rotation + delta.RotationDelta;
 
             //This unit no longer needs to move
             toProcess.RemoveComponent(delta);
