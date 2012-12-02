@@ -24,5 +24,10 @@ namespace Shooter.EntityInitialization
 
             return template.Clone();
         }
+
+        public IEntityFactory Clone()
+        {
+            return new CloneEntityFactory(template);
+        }
     }
 }

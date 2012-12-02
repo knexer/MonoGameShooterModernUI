@@ -20,13 +20,22 @@ namespace Shooter.EntityInitialization
 
         public Entity CreateEntity(Entity parentEntity, Entity existing)
         {
-            Entity ret = new Entity();
-            foreach(IEntityFactory factory in entityFactories)
+            if (existing == null)
             {
-                ret = factory.CreateEntity(parentEntity, ret);
+                existing = new Entity();
             }
 
-            return ret;
+            foreach(IEntityFactory factory in entityFactories)
+            {
+                existing = factory.CreateEntity(parentEntity, existing);
+            }
+
+            return existing;
+        }
+
+        public IEntityFactory Clone()
+        {
+            return new ComposedEntityFactory(entityFactories);
         }
     }
 }

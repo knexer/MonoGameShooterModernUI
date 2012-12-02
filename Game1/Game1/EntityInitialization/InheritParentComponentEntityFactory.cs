@@ -35,5 +35,10 @@ namespace Shooter.EntityInitialization
 
             return existing;
         }
+
+        public IEntityFactory Clone()
+        {
+            return new InheritParentComponentEntityFactory(inheritedType);
+        }
     }
 }
