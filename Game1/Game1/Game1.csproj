@@ -160,6 +160,10 @@
     <Compile Include="Components\AddComponentOnDestructionComponent.cs" />
     <Compile Include="Components\TextureComponent.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="EntityInitialization\CloneEntityFactory.cs" />
+    <Compile Include="EntityInitialization\ComposedEntityFactory.cs" />
+    <Compile Include="EntityInitialization\IEntityFactory.cs" />
+    <Compile Include="EntityInitialization\InheritParentComponentOfTypeEntityFactory.cs" />
     <Compile Include="EntityManagers\EntityManagerManager.cs" />
     <Compile Include="EntityManagers\IEntityManager.cs" />
     <Compile Include="EntityManagers\ListEntityManager.cs" />
@@ -415,6 +419,9 @@
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EntityInitialization\ShooterEntityFactories\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
