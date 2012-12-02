@@ -163,7 +163,7 @@
     <Compile Include="EntityInitialization\CloneEntityFactory.cs" />
     <Compile Include="EntityInitialization\ComposedEntityFactory.cs" />
     <Compile Include="EntityInitialization\IEntityFactory.cs" />
-    <Compile Include="EntityInitialization\InheritParentComponentOfTypeEntityFactory.cs" />
+    <Compile Include="EntityInitialization\InheritParentComponentEntityFactory.cs" />
     <Compile Include="EntityManagers\EntityManagerManager.cs" />
     <Compile Include="EntityManagers\IEntityManager.cs" />
     <Compile Include="EntityManagers\ListEntityManager.cs" />

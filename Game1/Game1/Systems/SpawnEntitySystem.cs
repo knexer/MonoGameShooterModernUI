@@ -32,7 +32,7 @@ namespace Shooter.Systems
             SpawnEntityComponent spawner = (SpawnEntityComponent)toProcess.components[typeof(SpawnEntityComponent)];
 
             //Construct a copy of the entity to be spawned
-            Entity toSpawn = spawner.EntityToSpawn.Clone();
+            Entity toSpawn = spawner.Factory.CreateEntity(toProcess, new Entity());
 
             //Remove the offending component so we don't get more spawns
             toProcess.RemoveComponent(spawner);
