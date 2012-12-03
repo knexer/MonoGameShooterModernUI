@@ -8,8 +8,8 @@ namespace Shooter.EntityInitialization
 {
     public interface IEntityFactory
     {
-        public Entity CreateEntity(Entity parentEntity, Entity existing);
+        Entity CreateEntity(Entity parentEntity, Entity existing);
 
-        public IEntityFactory Clone();
+        IEntityFactory Clone();
     }
 }

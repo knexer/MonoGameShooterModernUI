@@ -113,8 +113,6 @@ namespace Shooter
 
             updateTimeSystems.Add(new DamageOnContactSystem());
 
-            updateTimeSystems.Add(new SpawnEntityAtPositionSystem());
-
             //Entity Destruction
 
             updateTimeSystems.Add(new PreMarkForDestructionSystem());

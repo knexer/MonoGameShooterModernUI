@@ -155,7 +155,6 @@
     <Compile Include="Components\ScreenWrappingComponent.cs" />
     <Compile Include="Components\SlavedPositionComponent.cs" />
     <Compile Include="Components\SoundEffectComponent.cs" />
-    <Compile Include="Components\SpawnEntityAtPosition.cs" />
     <Compile Include="Components\SpawnEntityComponent.cs" />
     <Compile Include="Components\AddComponentOnDestructionComponent.cs" />
     <Compile Include="Components\TextureComponent.cs" />
@@ -209,7 +208,6 @@
     <Compile Include="Systems\ProcessDestructionSystems\PreProcessDestructionSystem.cs" />
     <Compile Include="Systems\RemoveEntitiesMarkedForDestructionSystem.cs" />
     <Compile Include="Systems\RenderSystem.cs" />
-    <Compile Include="Systems\SpawnEntityAtPositionSystem.cs" />
     <Compile Include="Systems\SpawnEntitySystem.cs" />
     <Compile Include="Systems\SystemTopologicalSort\DiGraph.cs" />
     <Compile Include="Systems\SystemTopologicalSort\SystemTopologicalSorter.cs" />

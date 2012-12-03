@@ -18,7 +18,7 @@ namespace Shooter.Systems
         public PlayMusicSystem()
         {
             SetReqTypes(new List<Type>() { typeof(MusicComponent) });
-            SetChildren(new List<Type>() { typeof(SpawnEntitySystem), typeof(SpawnEntityAtPositionSystem) });
+            SetChildren(new List<Type>() { typeof(SpawnEntitySystem)});
             SetParents(new List<Type>() { typeof(PostOnDestructionSystem) });
         }
 

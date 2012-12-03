@@ -17,7 +17,7 @@ namespace Shooter.Systems
         public PlaySoundEffectSystem()
         {
             SetReqTypes(new List<Type>() { typeof(SoundEffectComponent) });
-            SetChildren(new List<Type>() { typeof(SpawnEntitySystem), typeof(SpawnEntityAtPositionSystem) });
+            SetChildren(new List<Type>() { typeof(SpawnEntitySystem)});
             SetParents(new List<Type>() { typeof(PostOnDestructionSystem) });
         }
 

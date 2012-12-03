@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Shooter.EntityManagers;
 using Microsoft.Xna.Framework.Audio;
+using Shooter.EntityInitialization;
 
 namespace Shooter.SceneInitialization.ShooterSceneInit
 {
@@ -100,8 +101,10 @@ namespace Shooter.SceneInitialization.ShooterSceneInit
 
             //The gun now has a position coupled to that of the player
             //So spawn bullets at the gun!
-            SpawnEntityAtPositionComponent spawner = new SpawnEntityAtPositionComponent();
-            spawner.toSpawn = bullet;
+            SpawnEntityComponent spawner = new SpawnEntityComponent();
+            spawner.Factory = new ComposedEntityFactory(new List<IEntityFactory>() { 
+                new CloneEntityFactory(bullet), 
+                new InheritParentComponentEntityFactory(typeof(PositionComponent)) });
 
             //Bullets should be spawned periodically
             PeriodicAddComponentComponent timer = new PeriodicAddComponentComponent();

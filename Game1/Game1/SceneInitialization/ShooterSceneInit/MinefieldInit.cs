@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Shooter.Components;
+using Shooter.EntityInitialization;
 using Shooter.EntityManagers;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace Shooter.SceneInitialization.ShooterSceneInit
 
             //Component: Spawn an entity
             SpawnEntityComponent spawnComponent = new SpawnEntityComponent();
-            spawnComponent.EntityToSpawn = createMineTemplateEntity(game);
+            spawnComponent.Factory = createAsteroidFactory(game);
 
             //Component: Periodically add a spawn entity component
             PeriodicAddComponentComponent timer = new PeriodicAddComponentComponent();
@@ -36,6 +37,11 @@ namespace Shooter.SceneInitialization.ShooterSceneInit
 
             //Add the minefield to the entity store
             entityStore.Add(minespawner);
+        }
+
+        private IEntityFactory createAsteroidFactory(Game game)
+        {
+            return new CloneEntityFactory(createMineTemplateEntity(game));
         }
 
         private Entity createMineTemplateEntity(Game game)
@@ -105,8 +111,10 @@ namespace Shooter.SceneInitialization.ShooterSceneInit
 
             //Component: Leaves behind an explosion entity when it is destroyed
             AddComponentOnDestructionComponent explosionSpawnTriggerer = new AddComponentOnDestructionComponent();
-            SpawnEntityAtPositionComponent explosionSpawner = new SpawnEntityAtPositionComponent();
-            explosionSpawner.toSpawn = createExplosionEntity(game, aabb);
+            SpawnEntityComponent explosionSpawner = new SpawnEntityComponent();
+            explosionSpawner.Factory = new ComposedEntityFactory(new List<IEntityFactory>() { 
+                new CloneEntityFactory(createExplosionEntity(game, aabb)), 
+                new InheritParentComponentEntityFactory(typeof(PositionComponent)) });
             explosionSpawnTriggerer.ToAdd = explosionSpawner;
             mineTemplate.AddComponent(explosionSpawnTriggerer);
 
