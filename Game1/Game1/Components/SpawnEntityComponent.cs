@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Shooter
+namespace Shooter.Components
 {
     public class SpawnEntityComponent : IComponent
     {
